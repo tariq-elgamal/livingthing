@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Are Living Things? — 5E Student-Centered Lesson</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=DM+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+
+:root{
+  --ink:#0f1f14;
+  --paper:#f6f4ef;
+  --white:#ffffff;
+  --green:#1a6b3c;
+  --green-mid:#2e9158;
+  --green-light:#6dbd8e;
+  --green-pale:#e4f5ec;
+  --amber:#e07d10;
+  --amber-pale:#fff3e0;
+  --blue:#1a4fbf;
+  --blue-pale:#e8eeff;
+  --purple:#6b2fa0;
+  --purple-pale:#f3eaff;
+  --red:#c0392b;
+  --red-pale:#fdecea;
+  --gold:#f9c74f;
+  --border:rgba(15,31,20,0.11);
+  --r:10px;
+  --r-lg:16px;
+  --shadow:0 2px 16px rgba(15,31,20,0.09);
+  --E1:#1a6b3c; /* Engage  */
+  --E2:#1a4fbf; /* Explore */
+  --E3:#6b2fa0; /* Explain */
+  --E4:#e07d10; /* Elaborate */
+  --E5:#c0392b; /* Evaluate */
+}
+
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  min-height:100vh;
+  padding:1.5rem 1rem 6rem;
+}
+.page{max-width:800px;margin:0 auto;}
+
+/* ── HERO ─────────────────────────────── */
+.hero{
+  background:var(--green);
+  border-radius:var(--r-lg);
+  padding:2.25rem 2rem 1.75rem;
+  margin-bottom:1.5rem;
+  position:relative;
+  overflow:hidden;
+}
+.hero::after{
+  content:'🧬';
+  position:absolute;right:1.5rem;top:1rem;
+  font-size:90px;opacity:.12;
+  transform:rotate(-10deg);pointer-events:none;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,.18);
+  color:#b5f5cc;font-size:11px;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;
+  padding:4px 12px;border-radius:20px;margin-bottom:.8rem;
+}
+.hero h1{
+  font-family:'Syne',sans-serif;
+  font-size:2.4rem;font-weight:800;
+  color:#fff;line-height:1.1;margin-bottom:.35rem;
+}
+.hero-sub{color:rgba(255,255,255,.72);font-size:15px;font-weight:500;margin-bottom:1.2rem;line-height:1.6;}
+.approach-pill{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--gold);color:#3d2500;
+  font-size:12px;font-weight:700;
+  padding:5px 14px;border-radius:20px;margin-bottom:1.25rem;
+}
+.hero-meta{display:flex;gap:1.2rem;flex-wrap:wrap;margin-bottom:1.25rem;}
+.hero-meta span{color:rgba(255,255,255,.6);font-size:13px;display:flex;align-items:center;gap:4px;font-weight:600;}
+.pbar-wrap{background:rgba(255,255,255,.15);border-radius:10px;height:6px;}
+.pbar{height:6px;border-radius:10px;background:var(--gold);transition:width .5s ease;width:0%;}
+.plabel{color:rgba(255,255,255,.5);font-size:11px;margin-top:5px;text-align:right;font-weight:700;}
+
+/* ── 5E NAV ───────────────────────────── */
+.e5-nav{display:flex;gap:6px;margin-bottom:1.5rem;flex-wrap:wrap;}
+.e5-btn{
+  padding:7px 15px;border-radius:20px;
+  border:2px solid var(--border);
+  background:var(--white);color:#666;
+  font-size:13px;font-weight:700;
+  font-family:'DM Sans',sans-serif;
+  cursor:pointer;transition:all .2s;
+  display:flex;align-items:center;gap:5px;
+}
+.e5-btn:hover{border-color:var(--green-light);color:var(--ink);}
+.e5-btn[data-e="1"].active{background:var(--E1);color:#fff;border-color:var(--E1);}
+.e5-btn[data-e="2"].active{background:var(--E2);color:#fff;border-color:var(--E2);}
+.e5-btn[data-e="3"].active{background:var(--E3);color:#fff;border-color:var(--E3);}
+.e5-btn[data-e="4"].active{background:var(--E4);color:#fff;border-color:var(--E4);}
+.e5-btn[data-e="5"].active{background:var(--E5);color:#fff;border-color:var(--E5);}
+.e5-dot{width:9px;height:9px;border-radius:50%;background:currentColor;display:inline-block;}
+
+/* ── PANELS ───────────────────────────── */
+.sp{display:none;}
+.sp.active{display:block;}
+
+/* ── SECTION HEADER ───────────────────── */
+.sec-header{
+  display:flex;align-items:center;gap:12px;
+  padding:1rem 1.4rem;border-radius:var(--r-lg);
+  margin-bottom:1.1rem;
+}
+.sec-header.e1{background:var(--E1);color:#fff;}
+.sec-header.e2{background:var(--E2);color:#fff;}
+.sec-header.e3{background:var(--E3);color:#fff;}
+.sec-header.e4{background:var(--E4);color:#fff;}
+.sec-header.e5{background:var(--E5);color:#fff;}
+.sec-header-icon{font-size:28px;}
+.sec-header-text{}
+.sec-header-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;opacity:.7;margin-bottom:2px;}
+.sec-header-title{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;line-height:1.1;}
+.sec-header-time{font-size:12px;opacity:.75;margin-top:3px;}
+
+/* ── CARD ─────────────────────────────── */
+.card{
+  background:var(--white);
+  border:1.5px solid var(--border);
+  border-radius:var(--r-lg);
+  padding:1.4rem 1.6rem;
+  margin-bottom:1.1rem;
+  box-shadow:var(--shadow);
+}
+.card h3{font-size:15px;font-weight:700;margin-bottom:.75rem;display:flex;align-items:center;gap:8px;color:var(--ink);}
+.card h3 i{font-size:18px;}
+.card.e1 h3 i{color:var(--E1);}
+.card.e2 h3 i{color:var(--E2);}
+.card.e3 h3 i{color:var(--E3);}
+.card.e4 h3 i{color:var(--E4);}
+.card.e5 h3 i{color:var(--E5);}
+
+/* ── ACTIVITY BANNER ──────────────────── */
+.act-banner{
+  display:flex;align-items:center;gap:9px;
+  padding:.75rem 1rem;border-radius:var(--r);
+  margin-bottom:.9rem;font-size:13px;font-weight:700;
+}
+.act-banner.green{background:var(--green-pale);color:var(--green);}
+.act-banner.blue{background:var(--blue-pale);color:var(--blue);}
+.act-banner.purple{background:var(--purple-pale);color:var(--purple);}
+.act-banner.amber{background:var(--amber-pale);color:var(--amber);}
+.act-banner.red{background:var(--red-pale);color:var(--red);}
+.act-banner .ab-icon{font-size:18px;}
+
+/* ── DO-NOW ───────────────────────────── */
+.do-now{
+  background:var(--amber-pale);border:2px solid var(--amber);
+  border-radius:var(--r);padding:1.1rem 1.25rem;margin-bottom:1rem;
+}
+.do-now-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--amber);margin-bottom:.5rem;display:flex;align-items:center;gap:6px;}
+.do-now p{font-size:14px;font-weight:600;color:#3d2500;line-height:1.65;}
+
+/* ── TPS ──────────────────────────────── */
+.tps{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:.75rem 0;}
+.tps-step{background:var(--green-pale);border-radius:var(--r);padding:.9rem .75rem;text-align:center;}
+.tps-icon{font-size:24px;margin-bottom:5px;}
+.tps-label{font-size:12px;font-weight:800;color:var(--green);text-transform:uppercase;letter-spacing:.05em;}
+.tps-sub{font-size:11px;color:#5a7a65;margin-top:3px;font-weight:600;}
+
+/* ── SORT GAME ────────────────────────── */
+.sort-intro{font-size:13px;font-weight:600;color:#5a7a65;margin-bottom:.75rem;line-height:1.6;}
+.sort-items{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1rem;}
+.sort-chip{
+  padding:7px 14px;border-radius:20px;
+  border:2px solid var(--border);background:var(--paper);
+  font-size:13px;font-weight:700;cursor:pointer;
+  transition:all .2s;user-select:none;
+  font-family:'DM Sans',sans-serif;
+}
+.sort-chip:hover{border-color:var(--green-light);transform:translateY(-1px);}
+.sort-chip.selected-living{border-color:var(--E1);background:var(--green-pale);color:var(--E1);}
+.sort-chip.selected-nonliving{border-color:var(--E5);background:var(--red-pale);color:var(--E5);}
+.sort-zones{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:.9rem;}
+.sort-zone{
+  border:2px dashed var(--border);
+  border-radius:var(--r);padding:.9rem;min-height:70px;
+}
+.sort-zone.living-zone{border-color:var(--E1);}
+.sort-zone.nonliving-zone{border-color:var(--E5);}
+.sort-zone-title{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.09em;margin-bottom:.5rem;}
+.sort-zone.living-zone .sort-zone-title{color:var(--E1);}
+.sort-zone.nonliving-zone .sort-zone-title{color:var(--E5);}
+.sort-placed{display:flex;flex-wrap:wrap;gap:5px;}
+.sort-placed-chip{
+  padding:4px 10px;border-radius:12px;font-size:12px;font-weight:700;cursor:pointer;
+}
+.living-chip{background:var(--green-pale);color:var(--E1);border:1.5px solid var(--green-light);}
+.nonliving-chip{background:var(--red-pale);color:var(--E5);border:1.5px solid #e5a09a;}
+.sort-check-btn{
+  background:var(--green);color:#fff;border:none;border-radius:var(--r);
+  padding:9px 18px;font-size:13px;font-weight:700;
+  font-family:'DM Sans',sans-serif;cursor:pointer;transition:background .2s;
+}
+.sort-check-btn:hover{background:var(--green-mid);}
+.sort-feedback{font-size:13px;font-weight:600;padding:9px 12px;border-radius:8px;margin-top:.6rem;display:none;}
+.sort-feedback.show{display:block;}
+.sort-feedback.ok{background:var(--green-pale);color:var(--green);}
+.sort-feedback.err{background:var(--red-pale);color:var(--red);}
+
+/* ── REASONING TABLE ──────────────────── */
+.rtable{width:100%;border-collapse:collapse;font-size:13px;}
+.rtable th{background:var(--paper);font-weight:700;text-align:left;padding:8px 10px;border:1.5px solid var(--border);font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--green);}
+.rtable td{padding:8px 10px;border:1.5px solid var(--border);vertical-align:top;}
+.rtable tr:nth-child(even) td{background:#fafaf8;}
+.rtable td:nth-child(2){text-align:center;font-size:16px;}
+.rtable td:nth-child(3){text-align:center;font-size:16px;}
+.rtable td:nth-child(4) textarea{
+  width:100%;border:none;background:transparent;
+  font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;
+  resize:none;outline:none;min-height:32px;color:var(--ink);
+}
+
+/* ── CHAR CARDS ───────────────────────── */
+.char-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:9px;margin:.75rem 0;}
+.char-card{
+  border:2px solid var(--border);border-radius:var(--r);
+  padding:.9rem;text-align:center;cursor:pointer;
+  transition:all .22s;background:var(--paper);
+}
+.char-card:hover{border-color:var(--green-light);transform:translateY(-2px);box-shadow:0 5px 16px rgba(26,107,60,.13);}
+.char-card.open{border-color:var(--green-mid);background:var(--green-pale);}
+.char-icon{font-size:26px;margin-bottom:5px;}
+.char-name{font-size:13px;font-weight:700;color:var(--ink);}
+.char-hint{font-size:11px;color:#aaa;font-weight:700;margin-top:2px;}
+.char-desc{font-size:12px;color:#5a7a65;margin-top:7px;line-height:1.5;display:none;border-top:1.5px dashed var(--green-light);padding-top:6px;font-weight:600;}
+.char-card.open .char-desc{display:block;}
+.char-card.open .char-hint{display:none;}
+
+/* ── HYPOTHESIS ───────────────────────── */
+.hyp-box{
+  background:var(--blue-pale);border:2px solid var(--blue);
+  border-radius:var(--r);padding:1rem 1.1rem;margin:.8rem 0;
+}
+.hyp-box label{font-size:12px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:5px;}
+.hyp-box textarea{
+  width:100%;border:1.5px solid #90caf9;border-radius:7px;
+  padding:8px 10px;font-family:'DM Sans',sans-serif;
+  font-size:13px;font-weight:500;resize:vertical;
+  background:#fff;color:var(--ink);min-height:65px;outline:none;
+}
+.hyp-box textarea:focus{border-color:var(--blue);}
+
+/* ── OBSERVATION TABLE ────────────────── */
+.obs-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:.75rem 0;}
+.obs-cell{
+  border:1.5px solid var(--border);border-radius:var(--r);
+  padding:1rem;background:var(--paper);
+}
+.obs-cell-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--blue);margin-bottom:.5rem;}
+.obs-cell .obs-draw{
+  width:100%;height:90px;border:1.5px dashed #aac4e0;
+  border-radius:7px;background:#fff;display:flex;align-items:center;
+  justify-content:center;font-size:12px;color:#aaa;font-weight:600;
+  margin-bottom:.5rem;
+}
+.obs-cell textarea{
+  width:100%;border:1.5px solid var(--border);border-radius:7px;
+  padding:7px 9px;font-family:'DM Sans',sans-serif;
+  font-size:12px;font-weight:500;resize:vertical;background:#fff;
+  outline:none;min-height:50px;color:var(--ink);
+}
+.obs-cell textarea:focus{border-color:var(--blue);}
+
+/* ── CLAIM-EVIDENCE-REASONING ─────────── */
+.cer-block{background:var(--paper);border-radius:var(--r);padding:1rem 1.1rem;margin-bottom:.75rem;}
+.cer-label{
+  font-family:'DM Mono',monospace;font-size:11px;font-weight:500;
+  text-transform:uppercase;letter-spacing:.1em;
+  padding:3px 9px;border-radius:12px;display:inline-block;margin-bottom:.5rem;
+}
+.cer-label.claim{background:var(--purple-pale);color:var(--purple);}
+.cer-label.evidence{background:var(--blue-pale);color:var(--blue);}
+.cer-label.reasoning{background:var(--green-pale);color:var(--green);}
+.cer-block textarea{
+  width:100%;border:1.5px solid var(--border);border-radius:7px;
+  padding:8px 10px;font-family:'DM Sans',sans-serif;
+  font-size:13px;font-weight:500;resize:vertical;background:#fff;
+  outline:none;min-height:60px;color:var(--ink);
+}
+.cer-block textarea:focus{border-color:var(--purple);}
+
+/* ── VOCAB MATCH ──────────────────────── */
+.vocab-pair{display:flex;align-items:flex-start;gap:9px;margin-bottom:8px;}
+.vocab-term{
+  background:var(--purple);color:#fff;border-radius:20px;
+  padding:5px 12px;font-size:12px;font-weight:700;
+  white-space:nowrap;min-width:105px;text-align:center;flex-shrink:0;
+}
+.vocab-input{
+  flex:1;border:1.5px solid var(--border);border-radius:7px;
+  padding:6px 10px;font-family:'DM Sans',sans-serif;
+  font-size:13px;font-weight:500;outline:none;background:#fff;transition:border-color .2s;
+}
+.vocab-input:focus{border-color:var(--purple);}
+.vocab-input.peek{border-color:var(--purple);background:var(--purple-pale);color:var(--purple);font-style:italic;}
+.vocab-hint-btn{
+  background:none;border:none;color:#aaa;font-size:12px;
+  font-weight:700;cursor:pointer;text-decoration:underline;
+  font-family:'DM Sans',sans-serif;white-space:nowrap;padding-top:8px;
+}
+
+/* ── ELABORATE SCENARIO ───────────────── */
+.scenario-card{
+  background:var(--amber-pale);border:2px solid var(--amber);
+  border-radius:var(--r);padding:1.1rem 1.3rem;margin-bottom:.8rem;
+}
+.scenario-icon{font-size:22px;margin-bottom:4px;}
+.scenario-q{font-size:14px;font-weight:700;color:#4a2800;margin-bottom:4px;}
+.scenario-sub{font-size:12px;color:#8a5000;font-weight:600;}
+.scenario-answer{
+  width:100%;border:1.5px solid #e0b870;border-radius:7px;
+  padding:8px 10px;font-family:'DM Sans',sans-serif;
+  font-size:13px;font-weight:500;resize:vertical;background:#fff;
+  outline:none;min-height:60px;color:var(--ink);margin-top:.6rem;
+}
+.scenario-answer:focus{border-color:var(--amber);}
+
+/* ── QUIZ ─────────────────────────────── */
+.qq{
+  background:var(--white);border:1.5px solid var(--border);
+  border-radius:var(--r-lg);padding:1.25rem 1.5rem;
+  margin-bottom:1rem;box-shadow:var(--shadow);
+}
+.qq-t{font-size:14px;font-weight:700;margin-bottom:.9rem;color:var(--ink);display:flex;align-items:flex-start;gap:9px;}
+.qq-num{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:24px;height:24px;border-radius:50%;background:var(--E5);
+  color:#fff;font-size:12px;font-weight:800;flex-shrink:0;margin-top:1px;
+}
+.qq-opts{display:flex;flex-direction:column;gap:7px;}
+.qo{
+  padding:9px 13px;border:1.5px solid #ddd;border-radius:var(--r);
+  background:var(--paper);font-size:13px;font-weight:600;cursor:pointer;
+  transition:all .2s;text-align:left;font-family:'DM Sans',sans-serif;color:var(--ink);
+}
+.qo:hover:not([disabled]){border-color:var(--green-light);background:var(--green-pale);}
+.qo.correct{background:#e4f9ed;border-color:var(--green-mid);color:var(--green);}
+.qo.wrong{background:var(--red-pale);border-color:var(--red);color:#7b241c;}
+.qfb{font-size:13px;font-weight:600;margin-top:7px;padding:8px 11px;border-radius:7px;display:none;line-height:1.5;}
+.qfb.show{display:block;}
+.cfb{background:#e4f9ed;color:var(--green);}
+.wfb{background:var(--red-pale);color:#7b241c;}
+
+/* ── SCORE ────────────────────────────── */
+.score-box{
+  background:var(--E5);border-radius:var(--r-lg);
+  padding:1.75rem;text-align:center;color:#fff;
+  margin-bottom:1rem;display:none;
+}
+.sc-big{font-size:3.5rem;font-weight:800;font-family:'Syne',sans-serif;line-height:1;}
+.sc-lbl{font-size:15px;opacity:.8;margin-top:6px;font-weight:600;}
+.sc-next{margin-top:1rem;}
+
+/* ── EXIT TICKET ──────────────────────── */
+.exit-item{
+  background:var(--paper);border:1.5px solid var(--border);
+  border-radius:var(--r);padding:1rem 1.2rem;margin-bottom:8px;
+}
+.exit-q{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:7px;display:flex;align-items:flex-start;gap:8px;}
+.exit-num{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:24px;height:24px;border-radius:50%;background:var(--E5);
+  color:#fff;font-size:12px;font-weight:800;flex-shrink:0;
+}
+.exit-ta{
+  width:100%;border:1.5px solid var(--border);border-radius:7px;
+  padding:8px 10px;font-family:'DM Sans',sans-serif;
+  font-size:13px;font-weight:500;resize:vertical;background:#fff;
+  outline:none;min-height:65px;color:var(--ink);
+}
+.exit-ta:focus{border-color:var(--E5);}
+
+/* ── SELF REFLECT ─────────────────────── */
+.reflect-stars{display:flex;gap:8px;margin:.5rem 0;}
+.star-btn{
+  font-size:24px;cursor:pointer;background:none;border:none;
+  transition:transform .15s;line-height:1;
+}
+.star-btn:hover{transform:scale(1.2);}
+.star-btn.lit::after{content:' ';}
+
+/* ── BUTTONS ──────────────────────────── */
+.acb{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:10px 20px;background:var(--green);color:#fff;
+  border:none;border-radius:var(--r);font-size:14px;font-weight:700;
+  font-family:'DM Sans',sans-serif;cursor:pointer;transition:all .2s;margin-top:10px;
+}
+.acb:hover{background:var(--green-mid);transform:translateY(-1px);}
+.acb.blue{background:var(--blue);}
+.acb.blue:hover{background:#2563cc;}
+.acb.purple{background:var(--purple);}
+.acb.purple:hover{background:#7c3db5;}
+.acb.amber{background:var(--amber);}
+.acb.amber:hover{background:#c06e0e;}
+.acb.red{background:var(--E5);}
+.acb.red:hover{background:#a93226;}
+
+/* ── PRINT BUTTON ─────────────────────── */
+.print-bar{position:fixed;bottom:1.5rem;right:1.5rem;z-index:100;display:flex;gap:8px;flex-direction:column;align-items:flex-end;}
+.print-btn{
+  display:flex;align-items:center;gap:8px;
+  border:none;border-radius:50px;padding:11px 20px;
+  font-size:13px;font-weight:800;font-family:'DM Sans',sans-serif;
+  cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,.25);transition:all .2s;
+}
+.print-btn.lesson{background:var(--green);color:#fff;}
+.print-btn.ticket{background:var(--E5);color:#fff;}
+.print-btn:hover{transform:translateY(-2px);box-shadow:0 7px 24px rgba(0,0,0,.3);}
+.print-btn i{font-size:16px;}
+
+/* ── FOOTER ───────────────────────────── */
+.footer{text-align:center;margin-top:3rem;font-size:12px;color:#aaa;font-weight:600;}
+
+/* ── PRINT STYLES ─────────────────────── */
+@media print{
+  .print-bar,.e5-nav,.pbar-wrap,.plabel,.hero-meta{display:none!important;}
+  body{padding:0;background:#fff;}
+  .page{max-width:100%;}
+  .hero{background:var(--green);-webkit-print-color-adjust:exact;print-color-adjust:exact;border-radius:0;padding:1.5rem;}
+  .sp{display:block!important;}
+  .sec-header{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .card,.qq,.exit-item{break-inside:avoid;page-break-inside:avoid;}
+  .acb{display:none;}
+  .sp+.sp{page-break-before:always;}
+  .exit-ta,.hyp-box textarea,.cer-block textarea,.scenario-answer,.obs-cell textarea{border:1px solid #ccc!important;min-height:40px;}
+  @page{margin:1.5cm;}
+}
+
+/* EXIT TICKET PRINT */
+.exit-ticket-section{display:none;}
+@media print{
+  .exit-ticket-section{display:block;}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-badge"><i class="ti ti-dna"></i> Cells &amp; Life · Grade 6–8 · Lesson 1</div>
+  <h1>What Are Living Things?</h1>
+  <div class="hero-sub">You investigate. You discover. You decide what counts as alive.</div>
+  <div class="approach-pill">⚡ 5E Student-Centered · Learning by Doing</div>
+  <div class="hero-meta">
+    <span><i class="ti ti-clock"></i> 50 minutes</span>
+    <span><i class="ti ti-users"></i> Ages 11–13</span>
+    <span><i class="ti ti-microscope"></i> Life Science</span>
+    <span><i class="ti ti-microphone-off"></i> &lt;5 min teacher talk</span>
+  </div>
+  <div class="pbar-wrap"><div class="pbar" id="pb"></div></div>
+  <div class="plabel" id="pl">0 of 5 activities completed</div>
+</div>
+
+<!-- ── 5E NAV ── -->
+<div class="e5-nav">
+  <button class="e5-btn active" data-e="1" onclick="go('engage')"><span class="e5-dot"></span> 1 · Engage</button>
+  <button class="e5-btn" data-e="2" onclick="go('explore')"><span class="e5-dot"></span> 2 · Explore</button>
+  <button class="e5-btn" data-e="3" onclick="go('explain')"><span class="e5-dot"></span> 3 · Explain</button>
+  <button class="e5-btn" data-e="4" onclick="go('elaborate')"><span class="e5-dot"></span> 4 · Elaborate</button>
+  <button class="e5-btn" data-e="5" onclick="go('evaluate')"><span class="e5-dot"></span> 5 · Evaluate</button>
+</div>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- E1 — ENGAGE -->
+<!-- ══════════════════════════════════════════════════ -->
+<div class="sp active" id="p-engage">
+  <div class="sec-header e1">
+    <div class="sec-header-icon">⚡</div>
+    <div class="sec-header-text">
+      <div class="sec-header-label">E1 · Engage</div>
+      <div class="sec-header-title">Spark the Question</div>
+      <div class="sec-header-time">~8 minutes · Student-driven discussion</div>
+    </div>
+  </div>
+
+  <!-- DO-NOW -->
+  <div class="card e1">
+    <div class="do-now">
+      <div class="do-now-title"><i class="ti ti-pencil"></i> Do Now — 2 minutes, on your own</div>
+      <p>Look at these four objects: a <strong>robot</strong>, a <strong>sponge</strong>, a <strong>chrysalis</strong>, and a <strong>volcano</strong>.<br><br>
+      In your notebook, write: <em>Which of these do you think are alive? Why?</em> There's no wrong answer yet — trust your instinct.</p>
+    </div>
+    <div class="act-banner green"><span class="ab-icon">👥</span><span>Think-Pair-Share — Compare answers with a partner, then share with the class</span></div>
+    <div class="tps">
+      <div class="tps-step"><div class="tps-icon">🧠</div><div class="tps-label">Think</div><div class="tps-sub">2 min alone</div></div>
+      <div class="tps-step"><div class="tps-icon">💬</div><div class="tps-label">Pair</div><div class="tps-sub">Compare with partner</div></div>
+      <div class="tps-step"><div class="tps-icon">🙋</div><div class="tps-label">Share</div><div class="tps-sub">Class discussion</div></div>
+    </div>
+  </div>
+
+  <!-- BIG QUESTION -->
+  <div class="card e1">
+    <h3><i class="ti ti-question-mark"></i> The Big Question</h3>
+    <p style="font-size:15px;font-weight:700;color:var(--ink);margin-bottom:.5rem;">How can you tell if something is living or nonliving?</p>
+    <p style="font-size:13px;color:#5a7a65;font-weight:500;line-height:1.65;">A robot can move. A volcano releases gas. A sponge absorbs water. A chrysalis just sits there — yet it becomes a butterfly. By the end of this lesson, you'll have the scientific tools to answer this question for <em>anything</em>.</p>
+  </div>
+
+  <!-- LEARNING OBJECTIVES — student-framed -->
+  <div class="card e1">
+    <h3><i class="ti ti-target"></i> What you'll be able to do</h3>
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <div style="display:flex;align-items:center;gap:10px;background:var(--green-pale);border-radius:8px;padding:9px 12px;font-size:13px;font-weight:600;"><i class="ti ti-circle-check" style="color:var(--green);font-size:16px;flex-shrink:0;"></i> Sort any object as living or nonliving — and justify your choice</div>
+      <div style="display:flex;align-items:center;gap:10px;background:var(--green-pale);border-radius:8px;padding:9px 12px;font-size:13px;font-weight:600;"><i class="ti ti-circle-check" style="color:var(--green);font-size:16px;flex-shrink:0;"></i> Name and explain the 7 characteristics of life</div>
+      <div style="display:flex;align-items:center;gap:10px;background:var(--green-pale);border-radius:8px;padding:9px 12px;font-size:13px;font-weight:600;"><i class="ti ti-circle-check" style="color:var(--green);font-size:16px;flex-shrink:0;"></i> Observe cells under a microscope and draw evidence-based conclusions</div>
+      <div style="display:flex;align-items:center;gap:10px;background:var(--green-pale);border-radius:8px;padding:9px 12px;font-size:13px;font-weight:600;"><i class="ti ti-circle-check" style="color:var(--green);font-size:16px;flex-shrink:0;"></i> Write a Claim–Evidence–Reasoning statement from your own data</div>
+    </div>
+    <button class="acb" onclick="go('explore')"><i class="ti ti-arrow-right"></i> Start investigating</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- E2 — EXPLORE -->
+<!-- ══════════════════════════════════════════════════ -->
+<div class="sp" id="p-explore">
+  <div class="sec-header e2">
+    <div class="sec-header-icon">🔬</div>
+    <div class="sec-header-text">
+      <div class="sec-header-label">E2 · Explore</div>
+      <div class="sec-header-title">Investigate: Living vs. Nonliving</div>
+      <div class="sec-header-time">~15 minutes · Hands-on + lab activity</div>
+    </div>
+  </div>
+
+  <!-- SORT ACTIVITY -->
+  <div class="card e2">
+    <h3><i class="ti ti-layout-grid"></i> Part A: Sort It — Living or Nonliving?</h3>
+    <div class="act-banner blue"><span class="ab-icon">🃏</span><span>Tap each item to sort it — Living (green) or Nonliving (red). Discuss tricky ones with a partner first!</span></div>
+    <p class="sort-intro">Tap each item once for <strong style="color:var(--E1)">Living</strong>, again for <strong style="color:var(--E5)">Nonliving</strong>, again to clear. After sorting, write your reasoning in the table below.</p>
+
+    <div class="sort-items" id="sort-chips"></div>
+    <div class="sort-zones">
+      <div class="sort-zone living-zone">
+        <div class="sort-zone-title">✅ Living</div>
+        <div class="sort-placed" id="zone-living"></div>
+      </div>
+      <div class="sort-zone nonliving-zone">
+        <div class="sort-zone-title">❌ Nonliving</div>
+        <div class="sort-placed" id="zone-nonliving"></div>
+      </div>
+    </div>
+    <button class="sort-check-btn" onclick="checkSort()"><i class="ti ti-check"></i> Check my sorting</button>
+    <div id="sort-feedback" class="sort-feedback"></div>
+  </div>
+
+  <!-- REASONING TABLE -->
+  <div class="card e2">
+    <h3><i class="ti ti-writing"></i> Part A: Write your reasoning</h3>
+    <div class="act-banner blue"><span class="ab-icon">✏️</span><span>For each organism, explain WHY it is living or nonliving. Use science vocabulary!</span></div>
+    <div style="overflow-x:auto;">
+    <table class="rtable">
+      <thead>
+        <tr>
+          <th>Object</th>
+          <th>Living</th>
+          <th>Nonliving</th>
+          <th>My reasoning</th>
+        </tr>
+      </thead>
+      <tbody id="reasoning-table"></tbody>
+    </table>
+    </div>
+  </div>
+
+  <!-- LAB ACTIVITY -->
+  <div class="card e2">
+    <h3><i class="ti ti-microscope"></i> Part B: A Closer Look at Life — Microscope Lab</h3>
+    <div style="background:var(--red-pale);border:1.5px solid var(--red);border-radius:var(--r);padding:.8rem 1rem;margin-bottom:.8rem;font-size:13px;font-weight:700;color:var(--red);display:flex;align-items:center;gap:8px;">
+      <i class="ti ti-shield-check" style="font-size:18px;"></i> Safety first — handle slides carefully. No eating or drinking. Report any breakage.
+    </div>
+    <div style="font-size:13px;font-weight:600;color:#5a7a65;margin-bottom:.75rem;line-height:1.65;"><strong style="color:var(--ink);">Materials:</strong> microscope · prepared slides (human cheek, onion, pond water, salt)</div>
+
+    <!-- Hypothesis first -->
+    <div class="hyp-box">
+      <label>🔮 Before you look — write your prediction:</label>
+      <textarea placeholder="I predict the living samples (cheek, onion, pond water) will look different from salt because… "></textarea>
+    </div>
+
+    <div class="act-banner blue"><span class="ab-icon">🧪</span><span>Observe each slide. Draw AND describe what you see — then answer the analysis questions below.</span></div>
+
+    <p style="font-size:13px;font-weight:600;color:#5a7a65;margin-bottom:.7rem;">Procedure: (1) Set up the microscope · (2) Observe each slide · (3) Illustrate &amp; describe · (4) Clean up as instructed</p>
+
+    <div class="obs-grid">
+      <div class="obs-cell">
+        <div class="obs-cell-label">Cheek sample</div>
+        <div class="obs-draw">[ Draw here in notebook ]</div>
+        <textarea placeholder="Describe what you see…"></textarea>
+      </div>
+      <div class="obs-cell">
+        <div class="obs-cell-label">Onion</div>
+        <div class="obs-draw">[ Draw here in notebook ]</div>
+        <textarea placeholder="Describe what you see…"></textarea>
+      </div>
+      <div class="obs-cell">
+        <div class="obs-cell-label">Pond water</div>
+        <div class="obs-draw">[ Draw here in notebook ]</div>
+        <textarea placeholder="Describe what you see…"></textarea>
+      </div>
+      <div class="obs-cell">
+        <div class="obs-cell-label">Salt</div>
+        <div class="obs-draw">[ Draw here in notebook ]</div>
+        <textarea placeholder="Describe what you see…"></textarea>
+      </div>
+    </div>
+
+    <!-- Analyze & Conclude -->
+    <h3 style="margin-top:1rem;"><i class="ti ti-chart-bar"></i> Analyze &amp; Conclude</h3>
+    <div class="exit-item" style="margin-top:.5rem;">
+      <div class="exit-q" style="font-size:13px;"><span class="exit-num" style="background:var(--E2);">4</span> What similarities did you notice between the slides?</div>
+      <textarea class="exit-ta" placeholder="Think about patterns — shapes, structures, repeating units…"></textarea>
+    </div>
+    <div class="exit-item">
+      <div class="exit-q" style="font-size:13px;"><span class="exit-num" style="background:var(--E2);">5</span> What differences did you notice?</div>
+      <textarea class="exit-ta" placeholder="Which slides looked most different? What stood out?"></textarea>
+    </div>
+    <div class="exit-item">
+      <div class="exit-q" style="font-size:13px;"><span class="exit-num" style="background:var(--E2);">6</span> Make a claim: How do the living samples differ from the nonliving (salt)?</div>
+      <textarea class="exit-ta" placeholder="The living samples… while the nonliving salt…"></textarea>
+    </div>
+    <div class="exit-item">
+      <div class="exit-q" style="font-size:13px;"><span class="exit-num" style="background:var(--E2);">7</span> What evidence from your investigation supports your claim?</div>
+      <textarea class="exit-ta" placeholder="Use your drawings and observations as evidence…"></textarea>
+    </div>
+
+    <button class="acb blue" onclick="go('explain')"><i class="ti ti-book"></i> I have data — now explain it!</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- E3 — EXPLAIN -->
+<!-- ══════════════════════════════════════════════════ -->
+<div class="sp" id="p-explain">
+  <div class="sec-header e3">
+    <div class="sec-header-icon">💡</div>
+    <div class="sec-header-text">
+      <div class="sec-header-label">E3 · Explain</div>
+      <div class="sec-header-title">Build the Science — In YOUR Words</div>
+      <div class="sec-header-time">~10 minutes · Concept construction + vocabulary</div>
+    </div>
+  </div>
+
+  <!-- 7 Characteristics -->
+  <div class="card e3">
+    <h3><i class="ti ti-list-check"></i> The 7 Characteristics of Life — discover each one</h3>
+    <div class="act-banner purple"><span class="ab-icon">🔍</span><span>Tap each card to reveal the characteristic. Then explain it to a partner in your own words before moving on.</span></div>
+    <p style="font-size:13px;font-weight:600;color:#5a7a65;margin-bottom:.75rem;">These 7 things must ALL be true for something to be considered alive. Remember your microscope observations — which ones did you actually SEE?</p>
+    <div class="char-grid">
+      <div class="char-card" onclick="toggleChar(this)">
+        <div class="char-icon">🧱</div>
+        <div class="char-name">Made of Cells</div>
+        <div class="char-hint">tap to reveal</div>
+        <div class="char-desc">All living things are made of one or more cells — the basic unit of life. This is what you saw under the microscope in the cheek and onion slides!</div>
+      </div>
+      <div class="char-card" onclick="toggleChar(this)">
+        <div class="char-icon">⚡</div>
+        <div class="char-name">Uses Energy</div>
+        <div class="char-hint">tap to reveal</div>
+        <div class="char-desc">All living things use energy to carry out life processes. Plants get energy from sunlight; animals get it from food.</div>
+      </div>
+      <div class="char-card" onclick="toggleChar(this)">
+        <div class="char-icon">🌱</div>
+        <div class="char-name">Grows &amp; Develops</div>
+        <div class="char-hint">tap to reveal</div>
+        <div class="char-desc">Living things grow and change in an organized, predictable way — like a chrysalis developing into a butterfly.</div>
+      </div>
+      <div class="char-card" onclick="toggleChar(this)">
+        <div class="char-icon">🔁</div>
+        <div class="char-name">Reproduces</div>
+        <div class="char-hint">tap to reveal</div>
+        <div class="char-desc">All living things can produce offspring — either sexually or asexually. Non-living things cannot reproduce.</div>
+      </div>
+      <div class="char-card" onclick="toggleChar(this)">
+        <div class="char-icon">🌡️</div>
+        <div class="char-name">Responds to Stimuli</div>
+        <div class="char-hint">tap to reveal</div>
+        <div class="char-desc">Living things react to changes in their environment — a plant turning toward light, or your hand pulling away from heat.</div>
+      </div>
+      <div class="char-card" onclick="toggleChar(this)">
+        <div class="char-icon">⚖️</div>
+        <div class="char-name">Maintains Homeostasis</div>
+        <div class="char-hint">tap to reveal</div>
+        <div class="char-desc">Living things keep their internal conditions stable — like your body keeping its temperature at 37°C even when it's cold outside.</div>
+      </div>
+      <div class="char-card" onclick="toggleChar(this)">
+        <div class="char-icon">🧬</div>
+        <div class="char-name">Has DNA</div>
+        <div class="char-hint">tap to reveal</div>
+        <div class="char-desc">All living things contain DNA — the genetic blueprint that carries information and gets passed to offspring.</div>
+      </div>
+    </div>
+    <div class="act-banner purple" style="margin-top:1rem;"><span class="ab-icon">✏️</span><span>In your notebook: draw a concept map connecting the 7 characteristics. Add one real-world example for each.</span></div>
+  </div>
+
+  <!-- CER using their own data -->
+  <div class="card e3">
+    <h3><i class="ti ti-file-text"></i> Use YOUR lab data — write a Claim, Evidence, Reasoning</h3>
+    <div class="act-banner purple"><span class="ab-icon">🧠</span><span>Use your microscope observations as evidence. This is YOUR scientific argument — not a textbook's.</span></div>
+    <div class="cer-block">
+      <span class="cer-label claim">Claim</span>
+      <p style="font-size:12px;color:#5a7a65;font-weight:600;margin-bottom:5px;">State what you conclude about living things and cells:</p>
+      <textarea placeholder="I claim that all living things are made of… because… The nonliving sample (salt) was different because…"></textarea>
+    </div>
+    <div class="cer-block">
+      <span class="cer-label evidence">Evidence</span>
+      <p style="font-size:12px;color:#5a7a65;font-weight:600;margin-bottom:5px;">Cite specific observations from your microscope lab:</p>
+      <textarea placeholder="In the cheek slide I observed… In the onion slide I observed… The salt slide showed…"></textarea>
+    </div>
+    <div class="cer-block">
+      <span class="cer-label reasoning">Reasoning</span>
+      <p style="font-size:12px;color:#5a7a65;font-weight:600;margin-bottom:5px;">Explain HOW your evidence connects to the 7 characteristics of life:</p>
+      <textarea placeholder="This evidence supports my claim because the characteristic 'made of cells' means that… Salt cannot be living because it lacks…"></textarea>
+    </div>
+  </div>
+
+  <!-- VOCAB -->
+  <div class="card e3">
+    <h3><i class="ti ti-vocabulary"></i> Vocabulary challenge — write it in your own words</h3>
+    <div class="act-banner purple"><span class="ab-icon">🧠</span><span>Try from memory first. Use "Show answer" only as a last resort.</span></div>
+    <div id="vocab-pairs"></div>
+  </div>
+  <button class="acb purple" onclick="go('elaborate')"><i class="ti ti-arrow-right"></i> Apply it to real cases</button>
+</div>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- E4 — ELABORATE -->
+<!-- ══════════════════════════════════════════════════ -->
+<div class="sp" id="p-elaborate">
+  <div class="sec-header e4">
+    <div class="sec-header-icon">🌍</div>
+    <div class="sec-header-text">
+      <div class="sec-header-label">E4 · Elaborate</div>
+      <div class="sec-header-title">Apply It to the Real World</div>
+      <div class="sec-header-time">~10 minutes · Scenario-based application</div>
+    </div>
+  </div>
+
+  <div class="card e4">
+    <h3><i class="ti ti-brain"></i> Real-world scenarios — discuss with a partner, then write</h3>
+    <div class="act-banner amber"><span class="ab-icon">💬</span><span>Read each scenario. Discuss with a partner for 1 minute, then write your reasoned answer below it.</span></div>
+
+    <div class="scenario-card">
+      <div class="scenario-icon">🤖</div>
+      <div class="scenario-q">Scenario 1: A robot can move, sense its environment, and "eat" electricity. Your friend says "robots are alive!" Use the 7 characteristics to argue whether they are right or wrong.</div>
+      <div class="scenario-sub">Which characteristics does a robot have? Which does it LACK? Is every characteristic needed?</div>
+      <textarea class="scenario-answer" placeholder="A robot has characteristics like… However, it lacks… Therefore, I conclude…"></textarea>
+    </div>
+
+    <div class="scenario-card">
+      <div class="scenario-icon">🌋</div>
+      <div class="scenario-q">Scenario 2: A volcano releases gases, grows in size, and responds to pressure underground. A student classifies it as "living." Evaluate their reasoning using scientific evidence.</div>
+      <div class="scenario-sub">A volcano seems to do some "living" things — but does it meet ALL 7 characteristics?</div>
+      <textarea class="scenario-answer" placeholder="The student's reasoning is incorrect/correct because… A volcano appears to… but it cannot…"></textarea>
+    </div>
+
+    <div class="scenario-card">
+      <div class="scenario-icon">🦠</div>
+      <div class="scenario-q">Scenario 3: Scientists discovered a tiny object on Mars that appears to have a cell-like structure and contains DNA. Does this mean it's alive? What additional evidence would scientists need?</div>
+      <div class="scenario-sub">Think about all 7 characteristics — which ones would be hardest to test from a distance?</div>
+      <textarea class="scenario-answer" placeholder="Having cells and DNA suggests… but to confirm it is alive, scientists would also need to observe…"></textarea>
+    </div>
+
+    <div class="scenario-card">
+      <div class="scenario-icon">🧫</div>
+      <div class="scenario-q">Scenario 4: A seed has been stored in a freezer for 100 years — no growth, no movement, no apparent energy use. Is it living or nonliving? Justify your answer.</div>
+      <div class="scenario-sub">Think about: can something be "alive" but dormant? What does the seed CONTAIN that matters?</div>
+      <textarea class="scenario-answer" placeholder="I claim the seed is… because even in a dormant state it still has… and can potentially…"></textarea>
+    </div>
+  </div>
+
+  <div class="card e4">
+    <h3><i class="ti ti-world"></i> Technology connection — discuss with your class</h3>
+    <div class="act-banner amber"><span class="ab-icon">💬</span><span>Share one idea with the class — choose any of the questions below.</span></div>
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <div style="background:var(--paper);border-radius:8px;padding:.9rem 1rem;font-size:13px;font-weight:600;border:1.5px solid var(--border);">🔭 Scientists use telescopes to find planets millions of km away. Similarly, we use <strong>microscopes</strong> to find cells. Why did it take hundreds of years for scientists to discover cells?</div>
+      <div style="background:var(--paper);border-radius:8px;padding:.9rem 1rem;font-size:13px;font-weight:600;border:1.5px solid var(--border);">🌊 Ocean algae are microscopic — yet they produce 50% of Earth's oxygen. How does knowing that all living things are made of cells change how you think about tiny organisms?</div>
+      <div style="background:var(--paper);border-radius:8px;padding:.9rem 1rem;font-size:13px;font-weight:600;border:1.5px solid var(--border);">🦠 Viruses have DNA but cannot reproduce on their own — they need a host cell. Are viruses living? Debate this with your partner using the 7 characteristics.</div>
+    </div>
+    <button class="acb amber" onclick="go('evaluate')"><i class="ti ti-check"></i> Ready to be evaluated?</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- E5 — EVALUATE -->
+<!-- ══════════════════════════════════════════════════ -->
+<div class="sp" id="p-evaluate">
+  <div class="sec-header e5">
+    <div class="sec-header-icon">🏆</div>
+    <div class="sec-header-text">
+      <div class="sec-header-label">E5 · Evaluate</div>
+      <div class="sec-header-title">Show What You Know</div>
+      <div class="sec-header-time">~7 minutes · Independent assessment</div>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="act-banner red"><span class="ab-icon">⚠️</span><span>Answer independently — no notes, no partner. This shows YOUR understanding.</span></div>
+
+  <div class="qq" id="q1">
+    <div class="qq-t"><span class="qq-num">1</span> Which of the following is the BEST reason to classify a chrysalis as a living thing?</div>
+    <div class="qq-opts">
+      <button class="qo" onclick="ans(this,'q1',false,'Movement alone doesn\'t make something living — a rolling rock moves. Chrysalises are still during this phase.')">It moves around in its environment</button>
+      <button class="qo" onclick="ans(this,'q1',true,'Correct! A chrysalis contains cells, uses energy, grows, develops, and has DNA — meeting all 7 characteristics even though it appears dormant.')">It is made of cells, uses energy, grows, and contains DNA</button>
+      <button class="qo" onclick="ans(this,'q1',false,'Chrysalises don\'t "eat" in the traditional sense. This isn\'t the best justification for classifying it as living.')">It eats food from the environment</button>
+      <button class="qo" onclick="ans(this,'q1',false,'A chrysalis doesn\'t respond obviously to stimuli during this phase — that\'s not the strongest reason to classify it as living.')">It responds quickly to stimuli</button>
+    </div>
+    <div class="qfb" id="f1"></div>
+  </div>
+
+  <div class="qq" id="q2">
+    <div class="qq-t"><span class="qq-num">2</span> In the microscope lab, the salt slide looked different from the cheek and onion slides. What is the MOST likely reason?</div>
+    <div class="qq-opts">
+      <button class="qo" onclick="ans(this,'q2',false,'Salt is not alive, so it cannot have chlorophyll. Chlorophyll is only in plant cells.')">Salt contains chlorophyll, which gives it a different color</button>
+      <button class="qo" onclick="ans(this,'q2',false,'All slides are thin enough to view under a light microscope. Thickness isn\'t the key difference here.')">The salt slide was too thick to view properly</button>
+      <button class="qo" onclick="ans(this,'q2',true,'Exactly! Living things are made of cells with internal structures (like a nucleus). Salt is a nonliving crystal — it has no cells, no internal organelles.')">Salt is nonliving and has no cells — living samples contain cells with internal structures</button>
+      <button class="qo" onclick="ans(this,'q2',false,'Salt dissolves in water but that doesn\'t explain what you see under the microscope. The key difference is the presence or absence of cells.')">Salt dissolves in the water on the slide</button>
+    </div>
+    <div class="qfb" id="f2"></div>
+  </div>
+
+  <div class="qq" id="q3">
+    <div class="qq-t"><span class="qq-num">3</span> A robot moves, senses the environment, and needs electricity. Why is it still classified as nonliving?</div>
+    <div class="qq-opts">
+      <button class="qo" onclick="ans(this,'q3',false,'Age has nothing to do with whether something is living. A newly made robot is still nonliving.')">Robots are too new — they haven\'t been around long enough to be living</button>
+      <button class="qo" onclick="ans(this,'q3',false,'Robots DO respond to stimuli — that\'s one characteristic they seem to have. But that alone isn\'t enough.')">Robots cannot respond to stimuli</button>
+      <button class="qo" onclick="ans(this,'q3',true,'Correct! Robots lack cells, cannot reproduce on their own, don\'t grow or develop, have no DNA, and cannot maintain homeostasis biologically — they fail most characteristics of life.')">Robots are not made of cells, cannot reproduce, have no DNA, and don\'t maintain biological homeostasis</button>
+      <button class="qo" onclick="ans(this,'q3',false,'Robots do use energy (electricity). The issue is they fail most of the 7 characteristics — not specifically energy use.')">Robots do not use energy of any kind</button>
+    </div>
+    <div class="qfb" id="f3"></div>
+  </div>
+
+  <div class="qq" id="q4">
+    <div class="qq-t"><span class="qq-num">4</span> Which statement is a scientific CLAIM (not just an observation)?</div>
+    <div class="qq-opts">
+      <button class="qo" onclick="ans(this,'q4',false,'This is an observation — it describes what you saw. A claim makes a conclusion or argument based on evidence.')">The cheek cells had round shapes with a dark dot in the middle</button>
+      <button class="qo" onclick="ans(this,'q4',true,'Correct! This is a claim — it makes a conclusion (all living things are made of cells) and connects it to evidence from the lab.')">All living things are made of cells, as shown by the similar structures seen in cheek and onion slides</button>
+      <button class="qo" onclick="ans(this,'q4',false,'This is a procedure step, not a claim. A claim is a conclusion you draw from evidence.')">I observed four slides under the microscope today</button>
+      <button class="qo" onclick="ans(this,'q4',false,'This is a hypothesis about future investigation — not a claim drawn from existing evidence.')">I think the pond water slide will look different from the others</button>
+    </div>
+    <div class="qfb" id="f4"></div>
+  </div>
+
+  <div class="qq" id="q5">
+    <div class="qq-t"><span class="qq-num">5</span> A student says: "A volcano is alive because it 'breathes' gas and grows bigger over time." Evaluate this argument.</div>
+    <div class="qq-opts">
+      <button class="qo" onclick="ans(this,'q5',false,'The student IS using the characteristics as a framework, but they\'re applying them incorrectly — releasing gas ≠ "breathing" in a biological sense.')">The student is correct — releasing gas counts as responding to stimuli</button>
+      <button class="qo" onclick="ans(this,'q5',false,'A volcano does grow and release gas, so we can\'t call the student\'s observations wrong. The logic, however, is flawed.')">The student is wrong because a volcano doesn\'t move</button>
+      <button class="qo" onclick="ans(this,'q5',true,'Correct! The student is applying characteristics loosely. A volcano lacks cells, DNA, cannot reproduce, and does not maintain homeostasis. Superficial similarities don\'t make something alive — ALL 7 characteristics must be met.')">The student is incorrectly applying the characteristics — a volcano lacks cells, DNA, reproduction, and homeostasis, so it cannot be classified as living</button>
+      <button class="qo" onclick="ans(this,'q5',false,'Volcanoes definitely grow over time — but that alone doesn\'t make them living. This misses the deeper issue with the student\'s argument.')">The student is wrong because volcanoes don\'t grow</button>
+    </div>
+    <div class="qfb" id="f5"></div>
+  </div>
+
+  <div class="score-box" id="scorebox">
+    <div class="sc-big" id="scbig">0/5</div>
+    <div class="sc-lbl" id="sclbl"></div>
+    <div class="sc-next"><button class="acb red" onclick="scrollToTicket()"><i class="ti ti-file-text"></i> Complete Exit Ticket</button></div>
+  </div>
+
+  <!-- EXIT TICKET -->
+  <div class="card e5" id="exit-ticket-card" style="margin-top:1.5rem;">
+    <h3><i class="ti ti-clipboard-check"></i> Exit Ticket — Your Final Evidence</h3>
+    <p style="font-size:13px;font-weight:600;color:#5a7a65;margin-bottom:.9rem;">Answer from memory. Your teacher will collect this. Be specific — use science vocabulary.</p>
+
+    <div class="exit-item">
+      <div class="exit-q"><span class="exit-num">1</span> List all 7 characteristics of life. Give one example for each from today's lab or scenarios.</div>
+      <textarea class="exit-ta" placeholder="1. Made of cells — example: cheek cells I saw under the microscope&#10;2. Uses energy — example:&#10;3. Grows & develops — example:&#10;…"></textarea>
+    </div>
+    <div class="exit-item">
+      <div class="exit-q"><span class="exit-num">2</span> Using the microscope lab, write one complete Claim–Evidence–Reasoning statement about what living things are made of.</div>
+      <textarea class="exit-ta" placeholder="Claim: All living things are made of…&#10;Evidence: In the microscope lab, the [cheek/onion/pond water] slide showed…&#10;Reasoning: This supports the claim because the characteristic 'made of cells' means…"></textarea>
+    </div>
+    <div class="exit-item">
+      <div class="exit-q"><span class="exit-num">3</span> Go back to your Do Now from the Engage section. Was your original prediction correct? What did you think a robot, sponge, chrysalis, or volcano was — and what do you think NOW? What changed your mind?</div>
+      <textarea class="exit-ta" placeholder="Originally I thought… was/wasn't living because… Now I know… because the 7 characteristics tell us…"></textarea>
+    </div>
+
+    <!-- Self-reflection -->
+    <div style="margin-top:1rem;border-top:1.5px solid var(--border);padding-top:1rem;">
+      <div style="font-size:13px;font-weight:700;color:var(--ink);margin-bottom:.5rem;">⭐ Self-assessment — how confident do you feel about today's learning?</div>
+      <div style="display:flex;gap:12px;align-items:center;">
+        <div style="display:flex;gap:4px;" id="star-row">
+          <button class="star-btn" onclick="rateSelf(1)" title="1 — I need more help">⭐</button>
+          <button class="star-btn" onclick="rateSelf(2)" title="2 — Somewhat confident">⭐</button>
+          <button class="star-btn" onclick="rateSelf(3)" title="3 — Getting there">⭐</button>
+          <button class="star-btn" onclick="rateSelf(4)" title="4 — Mostly confident">⭐</button>
+          <button class="star-btn" onclick="rateSelf(5)" title="5 — Very confident">⭐</button>
+        </div>
+        <span id="star-label" style="font-size:12px;font-weight:600;color:#aaa;"></span>
+      </div>
+      <textarea class="exit-ta" style="margin-top:.75rem;" placeholder="One thing I'm still confused about: …"></textarea>
+    </div>
+  </div>
+
+  <div class="footer">5E Student-Centered Lesson · What Are Living Things? · Cells &amp; Life · Middle School Science</div>
+</div><!-- end page -->
+
+<!-- ── PRINT BAR ── -->
+<div class="print-bar">
+  <button class="print-btn ticket" onclick="printTicket()">
+    <i class="ti ti-clipboard-check"></i> Print Exit Ticket
+  </button>
+  <button class="print-btn lesson" onclick="printLesson()">
+    <i class="ti ti-printer"></i> Print Lesson Plan
+  </button>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- EXIT TICKET PRINT VERSION (hidden on screen) -->
+<!-- ════════════════════════════════════════════ -->
+<div class="exit-ticket-section" id="print-ticket-only">
+  <h2 style="font-family:'Syne',sans-serif;font-size:1.5rem;margin-bottom:.3rem;color:var(--green);">Exit Ticket — What Are Living Things?</h2>
+  <p style="font-size:12px;color:#666;margin-bottom:1.5rem;">Name: _______________________________ Class: ______________ Date: _____________</p>
+  <div class="exit-item">
+    <div class="exit-q"><span class="exit-num">1</span> List the 7 characteristics of life and give one example for each.</div>
+    <div style="height:120px;border:1px solid #ccc;border-radius:7px;margin-top:5px;"></div>
+  </div>
+  <div class="exit-item" style="margin-top:8px;">
+    <div class="exit-q"><span class="exit-num">2</span> Write a complete Claim–Evidence–Reasoning statement about what living things are made of. Use evidence from the microscope lab.</div>
+    <div style="height:100px;border:1px solid #ccc;border-radius:7px;margin-top:5px;"></div>
+  </div>
+  <div class="exit-item" style="margin-top:8px;">
+    <div class="exit-q"><span class="exit-num">3</span> Look back at your Do Now prediction. What has changed in your thinking? Use the 7 characteristics as evidence.</div>
+    <div style="height:80px;border:1px solid #ccc;border-radius:7px;margin-top:5px;"></div>
+  </div>
+  <div style="margin-top:12px;border-top:1px solid #ccc;padding-top:10px;display:flex;align-items:center;gap:12px;">
+    <span style="font-size:12px;font-weight:700;color:#666;">Confidence: ⭐ ⭐ ⭐ ⭐ ⭐</span>
+    <span style="font-size:12px;color:#666;">One thing I'm still confused about:</span>
+  </div>
+  <div style="height:30px;border:1px solid #ccc;border-radius:7px;margin-top:5px;"></div>
+</div>
+
+</div><!-- end page wrapper -->
+
+<script>
+// ── TABS ─────────────────────────────────────────
+const panels=['engage','explore','explain','elaborate','evaluate'];
+const visited=new Set(['engage']);
+function go(n){
+  document.querySelectorAll('.sp').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.e5-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('p-'+n).classList.add('active');
+  const i=panels.indexOf(n);
+  document.querySelectorAll('.e5-btn')[i].classList.add('active');
+  visited.add(n);
+  const pct=Math.round(visited.size/5*100);
+  document.getElementById('pb').style.width=pct+'%';
+  document.getElementById('pl').textContent=visited.size+' of 5 activities completed';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── SORT GAME ─────────────────────────────────────
+const ITEMS=[
+  {label:'Kit fox',living:true},{label:'Volcano',living:false},
+  {label:'Grapes',living:true},{label:'Sand / Water',living:false},
+  {label:'Sponge',living:true},{label:'Robot',living:false},
+  {label:'Chrysalis',living:true},{label:'Eggs',living:true},
+  {label:'Moon / Clouds',living:false},{label:'Sea anemone',living:true},
+  {label:'Light rays',living:false},{label:'Bacteria',living:true}
+];
+const chipState={}; // 0=none,1=living,2=nonliving
+ITEMS.forEach(item=>chipState[item.label]=0);
+
+function buildSort(){
+  const container=document.getElementById('sort-chips');
+  ITEMS.forEach(item=>{
+    const btn=document.createElement('button');
+    btn.className='sort-chip';
+    btn.textContent=item.label;
+    btn.dataset.label=item.label;
+    btn.onclick=()=>cycleChip(item.label);
+    container.appendChild(btn);
+  });
+}
+function cycleChip(label){
+  const next=(chipState[label]+1)%3;
+  chipState[label]=next;
+  // Update chip style
+  const chip=document.querySelector(`.sort-chip[data-label="${CSS.escape(label)}"]`);
+  chip.className='sort-chip'+(next===1?' selected-living':next===2?' selected-nonliving':'');
+  renderZones();
+  document.getElementById('sort-feedback').className='sort-feedback';
+}
+function renderZones(){
+  const lz=document.getElementById('zone-living');
+  const nz=document.getElementById('zone-nonliving');
+  lz.innerHTML=''; nz.innerHTML='';
+  ITEMS.forEach(item=>{
+    if(chipState[item.label]===1){
+      const c=document.createElement('div');
+      c.className='sort-placed-chip living-chip';
+      c.textContent=item.label;
+      c.onclick=()=>{chipState[item.label]=0;const ch=document.querySelector(`.sort-chip[data-label="${CSS.escape(item.label)}"]`);ch.className='sort-chip';renderZones();};
+      lz.appendChild(c);
+    } else if(chipState[item.label]===2){
+      const c=document.createElement('div');
+      c.className='sort-placed-chip nonliving-chip';
+      c.textContent=item.label;
+      c.onclick=()=>{chipState[item.label]=0;const ch=document.querySelector(`.sort-chip[data-label="${CSS.escape(item.label)}"]`);ch.className='sort-chip';renderZones();};
+      nz.appendChild(c);
+    }
+  });
+}
+function checkSort(){
+  const fb=document.getElementById('sort-feedback');
+  const unsorted=ITEMS.filter(i=>chipState[i.label]===0);
+  if(unsorted.length>0){
+    fb.className='sort-feedback show err';
+    fb.textContent='⚠️ You still have '+unsorted.length+' unsorted item(s): '+unsorted.map(i=>i.label).join(', ')+'. Sort all 12 first!';
+    return;
+  }
+  const wrong=ITEMS.filter(i=>(chipState[i.label]===1)!==i.living);
+  if(wrong.length===0){
+    fb.className='sort-feedback show ok';
+    fb.textContent='✅ Perfect! All 12 correctly sorted. Remember: a sponge, chrysalis, and eggs are ALL living — even when they seem motionless!';
+  } else {
+    fb.className='sort-feedback show err';
+    fb.textContent='❌ '+wrong.length+' item(s) need rechecking: '+wrong.map(i=>i.label).join(', ')+'. Think about ALL 7 characteristics — not just movement!';
+  }
+}
+
+// ── REASONING TABLE ───────────────────────────────
+function buildTable(){
+  const tbody=document.getElementById('reasoning-table');
+  ITEMS.forEach(item=>{
+    const tr=document.createElement('tr');
+    tr.innerHTML=`
+      <td style="font-weight:600;">${item.label}</td>
+      <td>${item.living?'✅':''}</td>
+      <td>${!item.living?'❌':''}</td>
+      <td><textarea placeholder="Why? Use the 7 characteristics…"></textarea></td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+// ── CHAR CARDS ────────────────────────────────────
+function toggleChar(el){el.classList.toggle('open');}
+
+// ── VOCAB ─────────────────────────────────────────
+const VOCAB=[
+  {term:'Cell',answer:'The basic structural and functional unit of all living things.'},
+  {term:'Organism',answer:'Any living thing — from bacteria to blue whales.'},
+  {term:'Homeostasis',answer:'The ability of a living thing to maintain stable internal conditions despite changes in the environment.'},
+  {term:'Stimulus',answer:'A change in the environment that causes a response in a living thing.'},
+  {term:'Reproduce',answer:'To produce offspring; a key characteristic that distinguishes living from nonliving things.'},
+  {term:'DNA',answer:'Deoxyribonucleic acid — the genetic material found in all living things that carries hereditary information.'},
+  {term:'Autotroph',answer:'An organism that makes its own food using energy from sunlight or chemicals (e.g., plants).'},
+];
+function buildVocab(){
+  const c=document.getElementById('vocab-pairs');
+  VOCAB.forEach((v,i)=>{
+    const div=document.createElement('div');
+    div.className='vocab-pair';
+    div.innerHTML=`
+      <div class="vocab-term">${v.term}</div>
+      <input class="vocab-input" placeholder="Define in your own words…">
+      <button class="vocab-hint-btn" onclick="showHint(this,'${v.answer.replace(/'/g,"\\'")}')">Show answer</button>`;
+    c.appendChild(div);
+  });
+}
+function showHint(btn,answer){
+  const input=btn.previousElementSibling;
+  input.value=answer;
+  input.classList.add('peek');
+  btn.textContent='✓ Shown';
+  btn.disabled=true;
+}
+
+// ── QUIZ ──────────────────────────────────────────
+const scores={};
+function ans(btn,qid,ok,fb){
+  if(scores[qid]!==undefined)return;
+  scores[qid]=ok?1:0;
+  document.getElementById(qid).querySelectorAll('.qo').forEach(b=>b.disabled=true);
+  btn.classList.add(ok?'correct':'wrong');
+  const f=document.getElementById('f'+qid.replace('q',''));
+  f.textContent=(ok?'✓ ':'✗ ')+fb;
+  f.className='qfb show '+(ok?'cfb':'wfb');
+  if(Object.keys(scores).length===5){
+    const tot=Object.values(scores).reduce((a,b)=>a+b,0);
+    const sb=document.getElementById('scorebox');
+    sb.style.display='block';
+    document.getElementById('scbig').textContent=tot+'/5';
+    const msgs=['Review the 7 characteristics and try again!','Go back and review — you\'re getting there!','Almost! One more review will do it.','Great work — solid understanding!','Excellent — nearly perfect!','🧬 Perfect score! Outstanding scientist!'];
+    document.getElementById('sclbl').textContent=msgs[tot];
+    sb.scrollIntoView({behavior:'smooth',block:'center'});
+  }
+}
+
+// ── STAR RATING ───────────────────────────────────
+const starLabels=['','I need more help','Somewhat unsure','Getting there','Mostly confident','Very confident!'];
+function rateSelf(n){
+  const stars=document.querySelectorAll('#star-row .star-btn');
+  stars.forEach((s,i)=>s.textContent=i<n?'🌟':'⭐');
+  document.getElementById('star-label').textContent=starLabels[n];
+}
+
+// ── SCROLL TO EXIT TICKET ─────────────────────────
+function scrollToTicket(){
+  document.getElementById('exit-ticket-card').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+// ── PRINT ─────────────────────────────────────────
+function printLesson(){
+  document.body.setAttribute('data-print','lesson');
+  // Make all panels visible for print
+  document.querySelectorAll('.sp').forEach(p=>p.setAttribute('data-ph',p.style.display));
+  window.print();
+}
+function printTicket(){
+  // Navigate to evaluate so exit ticket is visible
+  go('evaluate');
+  document.body.setAttribute('data-print','ticket');
+  setTimeout(()=>{
+    // Show only exit ticket
+    const el=document.getElementById('exit-ticket-card');
+    el.scrollIntoView();
+    window.print();
+  },200);
+}
+
+// ── INIT ──────────────────────────────────────────
+buildSort();
+buildTable();
+buildVocab();
+</script>
+
+<!-- Print-specific overrides for ticket vs full -->
+<style>
+@media print {
+  /* Default: print entire lesson */
+  body[data-print="lesson"] .sp { display: block !important; }
+  body[data-print="lesson"] .hero { padding: 1rem 1.5rem; }
+  body[data-print="lesson"] .sp + .sp { page-break-before: always; }
+
+  /* Ticket-only print */
+  body[data-print="ticket"] .hero,
+  body[data-print="ticket"] .e5-nav,
+  body[data-print="ticket"] #p-engage,
+  body[data-print="ticket"] #p-explore,
+  body[data-print="ticket"] #p-explain,
+  body[data-print="ticket"] #p-elaborate,
+  body[data-print="ticket"] .footer { display: none !important; }
+  body[data-print="ticket"] #p-evaluate { display: block !important; }
+  body[data-print="ticket"] .score-box { display: none !important; }
+  body[data-print="ticket"] .act-banner,
+  body[data-print="ticket"] .sec-header { display: none !important; }
+  body[data-print="ticket"] .qq { display: none !important; }
+  body[data-print="ticket"] #exit-ticket-card { display: block !important; }
+  /* Add name line */
+  body[data-print="ticket"] #exit-ticket-card::before {
+    content: "Name: _______________________________ Class: ______________ Date: _____________";
+    display: block; font-size: 12px; color: #444; margin-bottom: 1rem;
+    border-bottom: 1px solid #ccc; padding-bottom: 8px;
+  }
+}
+</style>
+</body>
+</html>
